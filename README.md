@@ -30,4 +30,7 @@ dans le dossier mère, écrit :
 Attention là c'est le **VRAI** jeu!! On as créer le jeu **Dungeon and dragons** en mode super Vilain pour combattre les 4 Fantastiques. 
 Tu auras le choix entre affronteras tes ennemis, upgrade tes armes et la possibilité de te soigner, le tout avec un petit lancer de dé.
 Petite spécificité cette fois se n'est pas *deux* mais *quatre* ennemis que tu va devoir affronter.
-Plus fort, plus nombreux !! N'oublis pas recharger tes points de vie ou de Up tes armes pour leurs faire face .
+Plus fort, plus nombreux !! N'oublis pas de recharger tes points de vie ou de Up tes armes pour leurs faire face .
+
+
+*PS*: Dans mon Gemfile la version de ruby est la 2.5.5 et non 2.5.1. Si sa ne marche pas chez toi echange ma Gemfile avec la tienne tu verras sa fonctionnera.
