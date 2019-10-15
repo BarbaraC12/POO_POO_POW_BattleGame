@@ -4,43 +4,45 @@ Bundler.require
 require_relative 'lib/game'
 require_relative 'lib/player'
 
-def home_page
-  puts "--------------------------------------------------"
-  puts "|  ⚔️Bienvenue sur 'ILS VEULENT TOUS MA POO'!⚔️  |"
-  puts "|Le but du jeu est d'être le dernier survivant ! |"
-  puts "--------------------------------------------------"
+def home_page #acceuil
+  puts "----------------------------------------------------"
+  puts "| ⚔️ Bienvenue sur 'POO-POO-PWO TheBattleGame'!⚔️  |"
+  puts "|  Le jeu ou il faut être le dernier survivant !   |"
+  puts "----------------------------------------------------"
 end
 
-def initialize_player
+def initialize_player #initialisation du joueur
   print "Quel est ton Pseudo ? "
   name = gets.chomp
-  puts "Bonjour #{name} !"
-  playerH = HumanPlayer.new(name)
-  puts "J'ai créé ton avatar !"
-  return playerH
+  puts "Bonjour #{name}, tu veux jouer avec moi 🤡🤡 !"
+  user = HumanPlayer.new(name)
+  return user
 end
 
+ # faire appel a mes def home_page et initialize_player
 home_page
-human_being = initialize_player
+user = initialize_player
 
-# création des ennemis
+ # initialisation des ennemis
 enemie1 = Player.new("Josiane")
 enemie2 = Player.new("José")
 enemies = [enemie1,enemie2]
 
-while human_being.life_point>0 && (enemie1.life_point > 0 || enemie2.life_point >0)
+ # boucle de combat
+while user.life_point>0 && (enemie1.life_point > 0 || enemie2.life_point >0)
   # affiche le status de joueur humain
-  human_being.show_state
+  user.show_state
 
-
+ # let's play
   # choix de l'action à faire
-  puts "**********************************"
+  puts 
+  puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ "
   puts "Quelle action veux-tu effectuer ? "
   puts
   puts "a - chercher une meilleure arme"
   puts "s - chercher à se soigner "
   puts
-  puts "attaquer un joueur en vue :"
+  puts "Attaquer un joueur en vue :"
   if enemie1.life_point > 0
     print "0 - "
     enemie1.show_state
@@ -50,25 +52,29 @@ while human_being.life_point>0 && (enemie1.life_point > 0 || enemie2.life_point 
     enemie2.show_state
   end
   puts
-  puts "Votre choix ?"
+  puts "Quel choix fait tu ?"
   action = gets.chomp
+  puts 
   puts "----------------------------------"
+  puts 
 
   # arbre de décision en fonction du choix del'action
   if action == "a"
-    human_being.exchange_weapon
+    user.exchange_weapon
   end
   if action == "s"
-    human_being.search_health_pack
+    user.search_health_pack
   end
   if action == "0" && enemie1.life_point > 0
-    human_being.attacks(enemie1)
+    user.attacks(enemie1)
   end
   if action == "1" && enemie2.life_point > 0
-    human_being.attacks(enemie2)
+    user.attacks(enemie2)
   end
-
- puts "----------------------------------"
+puts 
+ puts "-----------------------------------"
+ puts 
+ puts 
  
   # ripostes des enemies 
   if enemie2.life_point>0 && enemie1.life_point> 0
@@ -76,19 +82,17 @@ while human_being.life_point>0 && (enemie1.life_point > 0 || enemie2.life_point 
   end
   enemies.each do | enemie |
     if enemie.life_point>0
-      enemie.attacks(human_being)
+      enemie.attacks(user)
     end
   end
 end
-
-puts "**********************************"
-puts "*** La partie est finie ***"
-if human_being.life_point > 0
-  puts "BRAVO ! TU AS GAGNE !"
+ # fin du jeu
+puts "   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+puts "   | *** La partie est finie *** |"
+if user.life_point > 0
+puts "   |👌👌BRAVO ! TU AS GAGNE !👌👌|"
 else 
-  puts "Loser ! Tu as perdu !"
+puts "   |👎👎Loser ! Tu as perdu !👎👎|"
 end
-puts "**********************************"
+puts "   *******************************"
 
-
-binding.pry
