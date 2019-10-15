@@ -6,7 +6,7 @@ Aujourd'hui on va faire un petit jeu de combat. Selon THP se sera de type Fortni
 Le but etant de faire combatre une joueur -Toi- contre plusieurs ennemie -des bots-.
 Réaliser pas à pas dans le fichier user.rb pour la création des class.
 Bon voila en tout cas se que donne mon projet XD.
-Réalisée moi-même BarbaraC 
+Réalisée avec mon groupe
 
 ### pour lancer les programmes depuis le terminal
 
