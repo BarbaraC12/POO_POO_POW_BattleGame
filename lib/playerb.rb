@@ -70,50 +70,32 @@ end
 class HumanPlayer < Player #a
   attr_accessor :weapon_level
 
-  def initialize(name) #b
+  def initilize(name) #b
     @weapon_level = 1
-    super(name) #ATTENTION à l'emplacement du super dans l'initialize, pour une modification effective, le life_points doit être mis aprés
+    super(name) #Attention au placement du super
     @life_point = 100
 
   end
-  def show_state  #c
-    puts "#{name} a #{life_point} points de vie et une arme de niveaux #{weapon_level}"
-  end
-  def compute_damage
-    rand(1..6) * @weapon_level
-  end
-  def search_weapon #d
-    return rand(1..6)
-  end
-  def exchange_weapon
-    new_weapon_level = search_weapon # fait appel à ma def search_weapon
-    puts "Tu as trouvé une arme de niveau #{new_weapon_level} " 
-    if new_weapon_level > weapon_level
-      @weapon_level = new_weapon_level
-      puts "Youhou ! elle est meilleure que ton arme actuelle : tu la prends."
-    else
-      puts "Sh@*#$...., elle n'est pas mieux que ton arme actuelle."
-  end
-  end
-  def search_health_pack #e
-    health_pack = rand(1..6)
-    if health_pack == 1
-      puts "tu n'as rien trouvé"
-    elsif health_pack == 6
-      @life_point = life_point + 80
-      if life_point > 100
-        @life_point = 100
-      end
-    puts "Woaw tu as trouvé un pack Platinium ! Sa te rapporte + 80 points de vie. "
-    else
-      @life_point = life_point + 50
-      if life_point > 100
-        @life_point = 100
-      end
-    puts "Tu as trouvé un pack Or! Sa te rapporte + 50 points de vie. "
-    end
+
+  def show_state
+    puts "#{@name} à #{life_point} points de vie et une armes de niveau #{weapon_level}"
   end
 
+  def compute_damage #c
+    rand(1..6) * @weapon_level
+  end
+
+  def search_weapon #d
+    weapon_level = rand(1..6) 
+    puts "Tu as trouvé une armes de niveau #{weapon_level}"
+    if weapon_level > @weapon_level
+      puts "Youhou ! elle est meilleure que ton arme actuelle : tu la prends."
+  else
+      puts "M@*#$... elle n'est pas mieux que ton arme actuelle..."
+    end
+  end
 end
 
 binding.pry
+puts "end of file"
+
