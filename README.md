@@ -20,7 +20,7 @@ C'est en mode automatique, un bot va jouer avec **2 joueurs**
 dans le dossier mère, écrit :
 - ```$ ruby app2.rb```
 
-Attention c'est un peu plus intéractif, on as créer un jeu du type **Dungeon and dragons**. 
+Attention, on as créer un jeu du type **Dungeon and dragons**. 
 Tu auras le choix entre affronteras deux ennemis, upgrade tes armes et la possibilité de te soigner, le tout avec un petit lancer de dé.
 
 #### Version 3.00
