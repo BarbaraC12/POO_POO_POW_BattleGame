@@ -5,7 +5,7 @@ class Game
 
   def initialize(human)
     @human_player = HumanPlayer.new(human)
-    @enemies = [Player.new("Red Richard"), Player.new("Jane Storm"), Player.new("Johnny Storm"), Player.new("Benjamin Grimm")]
+    @enemies = [Player.new("Mr Invisible"), Player.new("La Femme invisible"), Player.new("La Torche humaine"), Player.new("La Chose")]
   end
 
   def kill_player
